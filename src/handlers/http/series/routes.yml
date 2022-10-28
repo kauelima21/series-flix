@@ -5,4 +5,4 @@ create_serie:
     events:
       - http:
           method: POST
-          path: /series/new
+          path: /series
