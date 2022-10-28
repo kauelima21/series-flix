@@ -4,7 +4,7 @@ import os
 import uuid
 
 from src.handlers.http.series import dynamodb
-from src.lib.utils import http_response
+from src.libraries.utils import http_response
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
