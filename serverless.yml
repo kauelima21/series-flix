@@ -47,3 +47,4 @@ provider:
 
 functions:
   - ${file(src/handlers/http/series/routes.yml)}
+  - ${file(src/handlers/http/comments/routes.yml)}

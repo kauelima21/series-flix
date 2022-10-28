@@ -1,0 +1,35 @@
+create_comment:
+    handler: src/handlers/http/comments/create_comment.handler
+    environment:
+      DYNAMODB_TABLE: comments-${sls:stage}
+    events:
+      - http:
+          method: POST
+          path: /comments
+read_comment:
+    handler: src/handlers/http/comments/read_comment.handler
+    environment:
+      DYNAMODB_TABLE: comments-${sls:stage}
+    events:
+      - http:
+          method: GET
+          path: /comments
+      - http:
+          method: GET
+          path: /comments/{id}
+update_comment:
+    handler: src/handlers/http/comments/update_comment.handler
+    environment:
+      DYNAMODB_TABLE: comments-${sls:stage}
+    events:
+      - http:
+          method: PUT
+          path: /comments/{id}
+delete_comment:
+    handler: src/handlers/http/comments/delete_comment.handler
+    environment:
+      DYNAMODB_TABLE: comments-${sls:stage}
+    events:
+      - http:
+          method: DELETE
+          path: /comments/{id}
