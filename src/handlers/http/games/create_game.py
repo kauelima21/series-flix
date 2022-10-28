@@ -18,7 +18,7 @@ def handler(event, context):
 
     item = {
         'id': str(uuid.uuid1()),
-        'name': data.get('name'),
+        'gamename': data.get('gamename'),
         'category': data.get('category'),
         'platform': data.get('platform'),
         'rating': data.get('rating')

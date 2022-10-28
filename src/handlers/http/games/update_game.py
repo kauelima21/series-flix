@@ -17,14 +17,14 @@ def handler(event, context):
     
     id = params.get("id")
 
-    name = data.get('name'),
-    category = data.get('category'),
-    platform = data.get('platform'),
+    gamename = data.get('gamename')
+    category = data.get('category')
+    platform = data.get('platform')
     rating = data.get('rating')
     updatedAt = datetime.datetime.now().isoformat()
 
     updateExpression = []
-    updateExpression.append('name = :name')
+    updateExpression.append('gamename = :gamename')
     updateExpression.append('category = :category')
     updateExpression.append('platform = :platform')
     updateExpression.append('rating = :rating')
@@ -32,7 +32,7 @@ def handler(event, context):
     updateExpression = "SET " + ', '.join(updateExpression)
 
     expressionAttributeValues = {}
-    expressionAttributeValues[':name'] = name
+    expressionAttributeValues[':gamename'] = gamename
     expressionAttributeValues[':category'] = category
     expressionAttributeValues[':platform'] = platform
     expressionAttributeValues[':rating'] = rating
@@ -44,7 +44,8 @@ def handler(event, context):
         },
         UpdateExpression = updateExpression,
         ExpressionAttributeValues = expressionAttributeValues,
-        ReturnValues="UPDATED_NEW")
+        ReturnValues = "UPDATED_NEW"
+    )
 
     status_code = 200
     return http_response(data=result, status_code=status_code)
