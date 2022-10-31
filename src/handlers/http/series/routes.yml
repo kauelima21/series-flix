@@ -7,7 +7,7 @@ create_serie:
           method: POST
           path: /series
 read_serie:
-    handler: src/handlers/http/series/read_serie.handler
+    handler: src/handlers/http/series/read_series.handler
     environment:
       DYNAMODB_TABLE: series-${sls:stage}
     events:
@@ -16,7 +16,7 @@ read_serie:
           path: /series
       - http:
           method: GET
-          path: /series/{id}
+          path: /serie/{id}
 update_serie:
     handler: src/handlers/http/series/update_serie.handler
     environment:
