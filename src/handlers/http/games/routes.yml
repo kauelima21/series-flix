@@ -1,0 +1,40 @@
+
+create_game:
+    handler: src/handlers/http/games/create_game.handler
+    environment:
+      DYNAMODB_TABLE: games-${sls:stage}
+    events:
+      - http:
+          method: POST
+          path: /games
+        
+read_game:
+    handler: src/handlers/http/games/read_game.handler
+    environment:
+      DYNAMODB_TABLE: games-${sls:stage}
+    events:
+      - http:
+          method: GET
+          path: /games
+      - http:
+          method: GET
+          path: /game/{id}
+
+update_game:
+    handler: src/handlers/http/games/update_game.handler
+    environment:
+      DYNAMODB_TABLE: games-${sls:stage}
+    events:
+      - http:
+          method: PUT
+          path: /games/{id}
+
+delete_game:
+    handler: src/handlers/http/games/delete_game.handler
+    environment:
+      DYNAMODB_TABLE: games-${sls:stage}
+    events:
+      - http:
+          method: DELETE
+          path: /games/{id}
+          

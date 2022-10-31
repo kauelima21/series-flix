@@ -1,0 +1,44 @@
+create_users:
+    handler: src/handlers/http/users/create_users.handler
+    environment:
+      DYNAMODB_TABLE: users-${sls:stage}
+    events:
+      - http:
+          method: POST
+          path: /users
+
+read_users:
+    handler: src/handlers/http/users/read_users.handler
+    environment:
+      DYNAMODB_TABLE: users-${sls:stage}
+    events:
+      - http:
+          method: GET
+          path: /users/{id}
+
+read_all_users:
+    handler: src/handlers/http/users/read_all_users.handler
+    environment:
+      DYNAMODB_TABLE: users-${sls:stage}
+    events:
+      - http:
+          method: GET
+          path: /users
+
+update_users:
+    handler: src/handlers/http/users/update_users.handler
+    environment:
+      DYNAMODB_TABLE: users-${sls:stage}
+    events:
+      - http:
+          method: PUT
+          path: /users/{id}
+
+delete_users:
+    handler: src/handlers/http/users/delete_users.handler
+    environment:
+      DYNAMODB_TABLE: users-${sls:stage}
+    events:
+      - http:
+          method: DELETE
+          path: /users/{id}

@@ -4,7 +4,7 @@ import os
 import uuid
 from datetime import datetime
 
-from src.handlers.http.series import dynamodb
+from src.handlers.http.users import dynamodb
 from src.libraries.utils import http_response
 
 logger = logging.getLogger()
@@ -20,12 +20,10 @@ def handler(event, context):
 
     item = {
         'id': str(uuid.uuid1()),
-        'category': data.get("category"),
-        'launch_date': data.get("launch_date"),
-        'rating': data.get("rating"),
-        'seasons': data.get("seasons"),
-        'synopsis': data.get("synopsis"),
-        'title': data.get("title"),
+        'username': data.get("username"),
+        'name': data.get("name"),
+        'surname': data.get("surname"),
+        'age': data.get("age"),
         'created_at': datetime.now().isoformat(),
         'updated_at': datetime.now().isoformat(),
     }
