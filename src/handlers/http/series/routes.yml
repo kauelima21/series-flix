@@ -32,4 +32,4 @@ delete_serie:
     events:
       - http:
           method: DELETE
-          path: /series/{id}
+          path: /serie/{id}
