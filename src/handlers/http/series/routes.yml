@@ -24,7 +24,7 @@ update_serie:
     events:
       - http:
           method: PUT
-          path: /series/{id}
+          path: /serie/{id}
 delete_serie:
     handler: src/handlers/http/series/delete_serie.handler
     environment:
