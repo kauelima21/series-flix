@@ -46,5 +46,6 @@ provider:
           Resource: "arn:aws:dynamodb:${aws:region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
-
   - ${file(src/handlers/http/games/routes.yml)}
+  - ${file(src/handlers/http/series/routes.yml)}
+  - ${file(src/handlers/http/comments/routes.yml)}
