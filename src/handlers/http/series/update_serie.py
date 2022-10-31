@@ -33,7 +33,7 @@ def handler(event, context):
     updateExpression.append('rating = :rating')
     updateExpression.append('seasons = :seasons')
     updateExpression.append('synopsis = :synopsis')
-    updateExpression.append('updatedAt = :updatedAt')
+    updateExpression.append('updated_at = :updated_at')
     updateExpression = "SET " + ', '.join(updateExpression)
 
     expressionAttributeValues = {}
@@ -43,7 +43,7 @@ def handler(event, context):
     expressionAttributeValues[':rating'] = rating
     expressionAttributeValues[':seasons'] = seasons
     expressionAttributeValues[':synopsis'] = synopsis
-    expressionAttributeValues[':updatedAt'] = updatedAt
+    expressionAttributeValues[':updated_at'] = updatedAt
 
     table.update_item(Key={'id': id},
                         UpdateExpression = updateExpression,
