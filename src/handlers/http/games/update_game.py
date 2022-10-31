@@ -17,14 +17,14 @@ def handler(event, context):
     
     id = params.get("id")
 
-    gamename = data.get('gamename')
+    game_name = data.get('game_name')
     category = data.get('category')
     platform = data.get('platform')
     rating = data.get('rating')
     updatedAt = datetime.datetime.now().isoformat()
 
     updateExpression = []
-    updateExpression.append('gamename = :gamename')
+    updateExpression.append('game_name = :game_name')
     updateExpression.append('category = :category')
     updateExpression.append('platform = :platform')
     updateExpression.append('rating = :rating')
@@ -32,7 +32,7 @@ def handler(event, context):
     updateExpression = "SET " + ', '.join(updateExpression)
 
     expressionAttributeValues = {}
-    expressionAttributeValues[':gamename'] = gamename
+    expressionAttributeValues[':game_name'] = game_name
     expressionAttributeValues[':category'] = category
     expressionAttributeValues[':platform'] = platform
     expressionAttributeValues[':rating'] = rating

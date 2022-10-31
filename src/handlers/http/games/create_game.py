@@ -3,7 +3,6 @@ import json
 import uuid
 import logging
 
-
 from src.handlers.http.games import dynamodb
 from src.libraries.utils import http_response
 
@@ -18,7 +17,7 @@ def handler(event, context):
 
     item = {
         'id': str(uuid.uuid1()),
-        'gamename': data.get('gamename'),
+        'game_name': data.get('game_name'),
         'category': data.get('category'),
         'platform': data.get('platform'),
         'rating': data.get('rating')
