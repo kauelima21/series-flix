@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "serverless-localstack": "^1.0.0"
+    "serverless-localstack": "^1.0.1"
   },
   "dependencies": {
     "serverless-delete-loggroups": "^0.3.1"
