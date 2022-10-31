@@ -2,7 +2,7 @@ import logging
 import os
 
 import boto3
-from src.handlers.http.series.tables import create_table
+from src.handlers.http.games.tables import create_table
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
