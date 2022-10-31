@@ -21,7 +21,7 @@ def handler(event, context):
     item = {
         'id': str(uuid.uuid1()),
         'username': data.get("username"),
-        'name': data.get("name"),
+        'first_name': data.get("first_name"),
         'surname': data.get("surname"),
         'age': data.get("age"),
         'created_at': datetime.now().isoformat(),
