@@ -15,7 +15,6 @@ def create_table(endpoint_url=None):
                 'AttributeName': 'id',
                 'KeyType': 'HASH'
             }
-
         ],
         AttributeDefinitions=[
             {
