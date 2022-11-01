@@ -1,0 +1,14 @@
+
+<div class="row" style="justify-content: center;">
+
+  <div class="card col-sm-3" style="width: 15rem;" *ngFor="let item of film">
+    <h5 class="card-title">{{ item.game_name }}</h5>
+    <img src="https://br.web.img3.acsta.net/medias/nmedia/18/90/93/20/20120876.jpg" class="card-img-top">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Category: {{ item.category }}</li>
+      <li class="list-group-item">Platform: {{ item.platform }}</li>
+      <li class="list-group-item">Rating: {{ item.rating }}</li>
+    </ul>
+  </div>
+
+</div>

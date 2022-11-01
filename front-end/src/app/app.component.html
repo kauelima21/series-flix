@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark shadow nav-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/series">
+            <h1 class="logo">SERIESFLIX</h1>
+        </a>
+        <button class="navbar-toggler shadow-none" data-bs-toggle="collapse" data-bs-target="#dropdown"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="dropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link link-light" routerLink="/games">GAMES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light" routerLink="/series">SERIES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-light" routerLink="/films">FILMS</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

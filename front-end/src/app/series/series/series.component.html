@@ -1,0 +1,16 @@
+
+<div class="row" style="justify-content: center;">
+
+  <div class="card col-sm-3" style="width: 15rem;" *ngFor="let item of serie">
+    <h5 class="card-title">{{ item.title }}</h5>
+    <img src="https://images.justwatch.com/poster/177867069/s718/sherlock.%7Bformat%7D" class="card-img-top">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Category: {{ item.category }}</li>
+      <li class="list-group-item">Synopsis: {{ item.synopsis }}</li>
+      <li class="list-group-item">Seasons: {{ item.seasons }}</li>
+      <li class="list-group-item">Rating: {{ item.rating }}</li>
+      <li class="list-group-item">Launch Date: {{ item.launch_date }}</li>
+    </ul>
+  </div>
+
+</div>
