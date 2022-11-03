@@ -32,6 +32,7 @@ provider:
   runtime: python3.8
   environment:
     DYNAMODB_TABLE: ${self:service}-${sls:stage}
+
   iam:
     role:
       statements:
@@ -49,4 +50,5 @@ functions:
   - ${file(src/handlers/http/games/routes.yml)}
   - ${file(src/handlers/http/series/routes.yml)}
   - ${file(src/handlers/http/comments/routes.yml)}
+  - ${file(src/handlers/http/movies/routes.yml)}
   - ${file(src/handlers/http/users/routes.yml)}

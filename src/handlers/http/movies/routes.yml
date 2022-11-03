@@ -1,0 +1,35 @@
+create_comment:
+    handler: src/handlers/http/movies/create_movies.handler
+    environment:
+      DYNAMODB_TABLE: movies-${sls:stage}
+    events:
+      - http:
+          method: POST
+          path: /movies
+read_comment:
+    handler: src/handlers/http/movies/read_movies.handler
+    environment:
+      DYNAMODB_TABLE: movies-${sls:stage}
+    events:
+      - http:
+          method: GET
+          path: /movies
+      - http:
+          method: GET
+          path: /movies/{id}
+update_comment:
+    handler: src/handlers/http/movies/update_movies.handler
+    environment:
+      DYNAMODB_TABLE: movies-${sls:stage}
+    events:
+      - http:
+          method: PUT
+          path: /movies/{id}
+delete_comment:
+    handler: src/handlers/http/movies/delete_movies.handler
+    environment:
+      DYNAMODB_TABLE: movies-${sls:stage}
+    events:
+      - http:
+          method: DELETE
+          path: /movies/{id}
