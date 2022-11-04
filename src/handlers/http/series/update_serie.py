@@ -24,6 +24,7 @@ def handler(event, context):
     seasons = data.get("seasons")
     rating = data.get("rating")
     synopsis = data.get("synopsis")
+    img_src = data.get("img_src")
     updatedAt = datetime.datetime.now().isoformat()
 
     updateExpression = []
@@ -31,6 +32,7 @@ def handler(event, context):
     updateExpression.append('category = :category')
     updateExpression.append('launch_date = :launch_date')
     updateExpression.append('rating = :rating')
+    updateExpression.append('img_src = :img_src')
     updateExpression.append('seasons = :seasons')
     updateExpression.append('synopsis = :synopsis')
     updateExpression.append('updated_at = :updated_at')
@@ -43,6 +45,7 @@ def handler(event, context):
     expressionAttributeValues[':rating'] = rating
     expressionAttributeValues[':seasons'] = seasons
     expressionAttributeValues[':synopsis'] = synopsis
+    expressionAttributeValues[':img_src'] = img_src
     expressionAttributeValues[':updated_at'] = updatedAt
 
     table.update_item(Key={'id': id},
