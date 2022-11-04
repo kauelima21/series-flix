@@ -26,6 +26,7 @@ def handler(event, context):
         'seasons': data.get("seasons"),
         'synopsis': data.get("synopsis"),
         'title': data.get("title"),
+        'img_src': data.get("img_src"),
         'created_at': datetime.now().isoformat(),
         'updated_at': datetime.now().isoformat(),
     }
