@@ -1,0 +1,36 @@
+version: "3"
+services:
+  localstack:
+    container_name: "series-flix"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+      - "127.0.0.1:53:53"                # DNS config (only required for Pro)
+      - "127.0.0.1:53:53/udp"            # DNS config (only required for Pro)
+      - "127.0.0.1:443:443"              # LocalStack HTTPS Gateway (only required for Pro)
+    environment:
+      - DEBUG=${DEBUG-}
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-}
+      - AWS_ACCESS_KEY_ID=teste
+      - AWS_SECRET_ACCESS_KEY=teste
+      - AWS_DEFAULT_REGION=us-east-1
+      - PERSISTENCE=1
+      - EDGE_PORT=4566
+      - SERVICES=lambda,s3,cloudformation,sts,apigateway,iam,route53,dynamodb,cloudwatch
+
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  app:
+    build: .
+    image: app:series_flix
+    container_name: series_flix_container
+    environment:
+      - AWS_ACCESS_KEY_ID=teste
+      - AWS_SECRET_ACCESS_KEY=teste
+      - AWS_DEFAULT_REGION=us-east-1
+      - ENDPOINT_URL=http://host.docker.internal:4566
+volumes:
+  my_volume:

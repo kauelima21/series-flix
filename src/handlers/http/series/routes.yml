@@ -1,0 +1,35 @@
+create_serie:
+    handler: src/handlers/http/series/create_serie.handler
+    environment:
+      DYNAMODB_TABLE: series-${sls:stage}
+    events:
+      - http:
+          method: POST
+          path: /series
+read_serie:
+    handler: src/handlers/http/series/read_series.handler
+    environment:
+      DYNAMODB_TABLE: series-${sls:stage}
+    events:
+      - http:
+          method: GET
+          path: /series
+      - http:
+          method: GET
+          path: /serie/{id}
+update_serie:
+    handler: src/handlers/http/series/update_serie.handler
+    environment:
+      DYNAMODB_TABLE: series-${sls:stage}
+    events:
+      - http:
+          method: PUT
+          path: /serie/{id}
+delete_serie:
+    handler: src/handlers/http/series/delete_serie.handler
+    environment:
+      DYNAMODB_TABLE: series-${sls:stage}
+    events:
+      - http:
+          method: DELETE
+          path: /serie/{id}
